@@ -1,0 +1,60 @@
+{
+  "appName": "BloodPrint Research Platform",
+  "disclaimerBanner": "Research Prototype — This platform is intended for research purposes only and is not a clinically validated diagnostic tool. Do not use its results for medical diagnosis or blood donation decisions.",
+  "nav": {
+    "dashboard": "Dashboard",
+    "history": "History",
+    "analytics": "Analytics",
+    "about": "About",
+    "logout": "Log out"
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "fullName": "Full name (optional)",
+    "loginButton": "Log in",
+    "registerButton": "Create account",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "registerLink": "Register",
+    "loginLink": "Log in",
+    "error": "Couldn't sign you in. Check your credentials and try again."
+  },
+  "upload": {
+    "title": "Upload Fingerprint Image",
+    "dragActive": "Drop the image here",
+    "dragInactive": "Drag and drop a fingerprint image here, or click to browse.",
+    "supportedFormats": "Supported formats: PNG, JPG, JPEG, BMP • Maximum file size: 16 MB",
+    "useTta": "Enable Test-Time Augmentation (TTA)",
+    "generateExplain": "Generate Explainability Heatmaps",
+    "submit": "Analyze Fingerprint",
+    "analyzing": "Analyzing capture…"
+  },
+  "result": {
+    "predictedLabel": "Predicted class",
+    "calibratedConfidence": "Calibrated confidence",
+    "rawConfidence": "Raw model confidence",
+    "qualityScore": "Capture quality",
+    "ensembleComposition": "Ensemble composition",
+    "explainability": "Model explainability",
+    "downloadReport": "Download PDF report",
+    "warnings": "Quality warnings",
+    "noWarnings": "No quality issues detected."
+  },
+  "history": {
+    "title": "Prediction history",
+    "empty": "No predictions yet. Upload a fingerprint to get started.",
+    "viewDetail": "View details"
+  },
+  "analytics": {
+    "title": "Prediction Insights",
+    "classDistribution": "Prediction Distribution",
+    "confidenceOverTime": "Prediction Confidence Over Time",
+    "totalPredictions": "Total Predictions"
+  },
+  "about": {
+    "title": "About this research prototype"
+  }
+}

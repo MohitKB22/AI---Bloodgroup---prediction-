@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme (default) -- research-instrument palette: deep ink graphite,
+     a cyan "signal" accent for real data/predictions, and a reserved amber
+     "uncertainty" accent used ONLY for calibration/confidence indicators
+     (never decoratively), matching how an actual lab instrument would use
+     color to mean something specific. */
+  --bp-bg-void: #0b0f13;
+  --bp-bg-panel: #12181d;
+  --bp-bg-panel-raised: #1a2128;
+  --bp-line: #262e35;
+  --bp-text-primary: #e7edf0;
+  --bp-text-muted: #8b9aa3;
+  --bp-accent-signal: #4fd1c5;
+  --bp-accent-uncertainty: #e8a33d;
+  --bp-accent-critical: #e2574c;
+}
+
+:root.light {
+  --bp-bg-void: #f3f5f6;
+  --bp-bg-panel: #ffffff;
+  --bp-bg-panel-raised: #edf1f2;
+  --bp-line: #d8dee1;
+  --bp-text-primary: #171b1e;
+  --bp-text-muted: #5b6770;
+  --bp-accent-signal: #0f8f84;
+  --bp-accent-uncertainty: #b9750a;
+  --bp-accent-critical: #c23b2e;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bp-bg-void);
+  color: var(--bp-text-primary);
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--bp-accent-signal);
+  color: var(--bp-bg-void);
+}
+
+/* Thin scrollbars matching the instrument-panel feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bp-bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bp-line);
+  border-radius: 4px;
+}

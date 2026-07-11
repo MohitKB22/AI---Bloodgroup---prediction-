@@ -1,0 +1,60 @@
+{
+  "appName": "Plateforme de Recherche BloodPrint",
+  "disclaimerBanner": "Prototype de recherche — Cette plateforme est destinée uniquement à la recherche et n'est pas un outil de diagnostic cliniquement validé. N'utilisez pas ses résultats pour un diagnostic médical ou une décision de don de sang.",
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "history": "Historique",
+    "analytics": "Analytique",
+    "about": "À propos",
+    "logout": "Se déconnecter"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Créer un compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "fullName": "Nom complet (facultatif)",
+    "loginButton": "Se connecter",
+    "registerButton": "Créer le compte",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "registerLink": "S'inscrire",
+    "loginLink": "Se connecter",
+    "error": "Impossible de vous connecter. Vérifiez vos identifiants et réessayez."
+  },
+  "upload": {
+    "title": "Téléverser une image d'empreinte digitale",
+    "dragActive": "Déposez l'image ici",
+    "dragInactive": "Glissez-déposez une image d'empreinte ici, ou cliquez pour parcourir.",
+    "supportedFormats": "Formats pris en charge : PNG, JPG, JPEG, BMP • Taille maximale : 16 Mo",
+    "useTta": "Activer l'augmentation au moment du test (TTA)",
+    "generateExplain": "Générer des cartes d'explicabilité",
+    "submit": "Analyser l'empreinte",
+    "analyzing": "Analyse de la capture…"
+  },
+  "result": {
+    "predictedLabel": "Classe prédite",
+    "calibratedConfidence": "Confiance calibrée",
+    "rawConfidence": "Confiance brute du modèle",
+    "qualityScore": "Qualité de la capture",
+    "ensembleComposition": "Composition de l'ensemble",
+    "explainability": "Explicabilité du modèle",
+    "downloadReport": "Télécharger le rapport PDF",
+    "warnings": "Avertissements de qualité",
+    "noWarnings": "Aucun problème de qualité détecté."
+  },
+  "history": {
+    "title": "Historique des prédictions",
+    "empty": "Aucune prédiction pour l'instant. Téléchargez une empreinte pour commencer.",
+    "viewDetail": "Voir les détails"
+  },
+  "analytics": {
+    "title": "Aperçu des prédictions",
+    "classDistribution": "Répartition des prédictions",
+    "confidenceOverTime": "Confiance des prédictions dans le temps",
+    "totalPredictions": "Total des prédictions"
+  },
+  "about": {
+    "title": "À propos de ce prototype de recherche"
+  }
+}

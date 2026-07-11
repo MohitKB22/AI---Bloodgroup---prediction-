@@ -1,0 +1,60 @@
+{
+  "appName": "Plataforma de Investigación BloodPrint",
+  "disclaimerBanner": "Prototipo de Investigación — Esta plataforma está destinada únicamente a fines de investigación y no es una herramienta de diagnóstico clínicamente validada. No utilice sus resultados para diagnósticos médicos ni para decisiones de donación de sangre.",
+  "nav": {
+    "dashboard": "Panel",
+    "history": "Historial",
+    "analytics": "Analítica",
+    "about": "Acerca de",
+    "logout": "Cerrar sesión"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión",
+    "registerTitle": "Crear una cuenta",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "fullName": "Nombre completo (opcional)",
+    "loginButton": "Iniciar sesión",
+    "registerButton": "Crear cuenta",
+    "noAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "registerLink": "Registrarse",
+    "loginLink": "Iniciar sesión",
+    "error": "No pudimos iniciar tu sesión. Verifica tus credenciales e intenta de nuevo."
+  },
+  "upload": {
+    "title": "Subir Imagen de Huella Dactilar",
+    "dragActive": "Suelta la imagen aquí",
+    "dragInactive": "Arrastra y suelta una imagen de huella dactilar aquí, o haz clic para explorar.",
+    "supportedFormats": "Formatos admitidos: PNG, JPG, JPEG, BMP • Tamaño máximo: 16 MB",
+    "useTta": "Activar Aumento en Tiempo de Prueba (TTA)",
+    "generateExplain": "Generar Mapas de Explicabilidad",
+    "submit": "Analizar Huella Dactilar",
+    "analyzing": "Analizando captura…"
+  },
+  "result": {
+    "predictedLabel": "Clase predicha",
+    "calibratedConfidence": "Confianza calibrada",
+    "rawConfidence": "Confianza cruda del modelo",
+    "qualityScore": "Calidad de la captura",
+    "ensembleComposition": "Composición del conjunto",
+    "explainability": "Explicabilidad del modelo",
+    "downloadReport": "Descargar informe PDF",
+    "warnings": "Advertencias de calidad",
+    "noWarnings": "No se detectaron problemas de calidad."
+  },
+  "history": {
+    "title": "Historial de predicciones",
+    "empty": "Aún no hay predicciones. Sube una huella dactilar para comenzar.",
+    "viewDetail": "Ver detalles"
+  },
+  "analytics": {
+    "title": "Información de Predicciones",
+    "classDistribution": "Distribución de Predicciones",
+    "confidenceOverTime": "Confianza de Predicción en el Tiempo",
+    "totalPredictions": "Predicciones Totales"
+  },
+  "about": {
+    "title": "Acerca de este prototipo de investigación"
+  }
+}
