@@ -1,0 +1,19 @@
+# Installed and smoke-tested against this exact set inside the dev
+# container. torch is listed without a CUDA-specific index here since
+# environments vary (CPU-only dev box vs. GPU training host); install a
+# CUDA build explicitly for GPU training, e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch==2.12.1
+torchvision==0.27.1
+timm==1.0.27
+
+numpy==2.5.1
+opencv-python-headless==5.0.0.93
+scikit-learn==1.9.0
+matplotlib==3.11.0
+albumentations==2.0.8
+PyYAML==6.0.3
+
+# Experiment tracking (shared tracking store with the backend service)
+mlflow==3.14.0
+tensorboard==2.21.0

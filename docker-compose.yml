@@ -1,0 +1,97 @@
+x-backend-env: &backend-env
+  BP_ENVIRONMENT: production
+  BP_DEBUG: "false"
+  BP_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-bloodprint}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-bloodprint}
+  BP_REDIS_URL: redis://redis:6379/0
+  BP_SECRET_KEY: ${BP_SECRET_KEY:?Set BP_SECRET_KEY in .env -- see .env.example}
+  BP_MODEL_BUNDLE_PATH: /app/ml_artifacts/model_bundle/bundle.json
+  BP_CORS_ALLOW_ORIGINS: '["http://localhost", "http://localhost:80"]'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bloodprint}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-bloodprint}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-bloodprint}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  # Reuses the backend image (it already has mlflow installed) with the
+  # command overridden to run the tracking server UI instead of the API.
+  mlflow:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000",
+              "--backend-store-uri", "sqlite:////mlflow-data/mlflow.db",
+              "--default-artifact-root", "/mlflow-data/artifacts"]
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow-data
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      <<: *backend-env
+    volumes:
+      - ./ml_artifacts:/app/ml_artifacts:ro
+      - backend_uploads:/app/backend/uploads
+      - backend_artifacts:/app/backend/artifacts
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/live"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  mlflow_data:
+  backend_uploads:
+  backend_artifacts:
